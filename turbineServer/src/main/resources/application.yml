@@ -1,0 +1,31 @@
+server:
+  port: 6548
+
+spring:
+  application:
+    name: turbineServer
+
+eureka:
+  instance:
+    hostname: 127.0.0.1
+  client:
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:6543/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      cors:
+        allowed-origins: "*"
+        allowed-methods: "*"
+
+turbine:
+  app-config: serviceConsumer,serviceTest
+  aggregator:
+    clusterConfig: default
+  clusterNameExpression: new String("default")
+  combine-host: true
+  instanceUrlSuffix:
+    default: actuator/hystrix.stream     

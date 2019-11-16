@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: configServer
+  cloud:
+    config:
+      label: master
+      server:
+        git:
+          uri: https://admin@localhost:8443/r/springcloudconfig.git/
+          searchPaths: respo
+          username: admin
+          password: admin
+server:
+  port: 6547

@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: serviceTest
+server:
+  port: 6549
+eureka:
+  instance:
+    hostname: 127.0.0.1
+  client:
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:6543/eureka/
+feign:
+  hystrix:
+    enabled: true
+management: 
+  endpoints:
+    web:
+      exposure:
+        include: "*"

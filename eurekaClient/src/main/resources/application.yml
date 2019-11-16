@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: eurekaClient
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: admin
+    password: admin
+server:
+  port: 6544
+eureka:
+  instance:
+    hostname: 127.0.0.1
+  client:
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:6543/eureka/
+feign:
+  hystrix:
+    enabled: true
+management: 
+  endpoints:
+    web:
+      exposure:
+        include: "*"

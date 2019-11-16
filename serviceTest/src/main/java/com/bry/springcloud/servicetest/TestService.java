@@ -1,4 +1,4 @@
-package com.bry.springcloud.serviceconsumer;
+package com.bry.springcloud.servicetest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,7 +14,7 @@ public class TestService {
 	HelloService helloService;
 
 	@RequestMapping("/getname")
-	public String sayHello() {
+	public String getName() {
 		log.info("TestService.sayHello()-> ");
 		return helloService.getName();
 	}

@@ -1,4 +1,4 @@
-package com.bry.springcloud.serviceconsumer;
+package com.bry.springcloud.servicetest;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: authenticationServer
+server:
+  port: 6550
+security:
+  basic: 
+    enabled: false

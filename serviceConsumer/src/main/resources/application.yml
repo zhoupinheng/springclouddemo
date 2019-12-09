@@ -1,6 +1,8 @@
 spring:
   application:
     name: serviceConsumer
+  main:
+    allow-bean-definition-overriding: true
 server:
   port: 6545
 eureka:
@@ -17,3 +19,15 @@ management:
     web:
       exposure:
         include: "*"
+security:
+  oauth2:
+    resource:
+      user-info-uri: http://localhost:6550/users/current
+      preferTokenInfo: false
+    client:
+      clientId: client_1
+      clientSecret: 123456
+      accessTokenUri: http://localhost:6550/oauth/token
+      grantType: client_credentials
+      scope: server
+      clientAuthenticationScheme: form

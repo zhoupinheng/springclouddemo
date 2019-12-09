@@ -32,8 +32,11 @@ public class ClientDetailsServiceImpl implements ClientDetailsService {
 		ClientDetails client = clientMap.get(clientId);
 
 		if (client != null) {
-			return new BaseClientDetails(client.getClientId(), StringUtils.collectionToCommaDelimitedString(client.getResourceIds()), StringUtils.collectionToCommaDelimitedString(client.getScope()),
-					StringUtils.collectionToCommaDelimitedString(client.getAuthorizedGrantTypes()), StringUtils.collectionToCommaDelimitedString(client.getAuthorities()));
+			BaseClientDetails newClient = new BaseClientDetails(client.getClientId(), StringUtils.collectionToCommaDelimitedString(client.getResourceIds()),
+					StringUtils.collectionToCommaDelimitedString(client.getScope()), StringUtils.collectionToCommaDelimitedString(client.getAuthorizedGrantTypes()),
+					StringUtils.collectionToCommaDelimitedString(client.getAuthorities()));
+			newClient.setClientSecret(client.getClientSecret());
+			return newClient;
 		} else {
 			throw new ClientRegistrationException("Client not exists");
 		}
